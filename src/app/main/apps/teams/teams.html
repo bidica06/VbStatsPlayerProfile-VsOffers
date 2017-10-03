@@ -1,0 +1,50 @@
+<div class="sample" layout="column" ng-cloak>
+  <md-content class="md-padding">
+    <md-tabs  md-selected="selectedIndex" md-border-bottom md-autoselect style="min-height: 1000px;">
+
+      <md-tab ng-repeat="tab in tabs"
+              ng-disabled="tab.disabled"
+              label="{{tab.name}}">
+
+        <md-tab-body>
+
+             <div ng-include="'app/main/apps/teams/team.html'" layout-fill ></div> 
+
+          <!-- <br/>
+          <md-button class="md-primary md-raised" ng-click="removeTab( tab )" ng-disabled="tabs.length <= 1">Remove Tab</md-button> -->
+        </md-tab-body>
+
+        <!-- <div class="demo-tab tab{{$index%4}}" style="padding: 25px; text-align: center;">
+           <div ng-bind="tab.content"></div> 
+          <br/>
+          <md-button class="md-primary md-raised" ng-click="removeTab( tab )" ng-disabled="tabs.length <= 1">Remove Tab</md-button>
+        </div> -->
+      </md-tab>
+
+
+
+
+    </md-tabs>
+  </md-content>
+
+    <form ng-submit="addTab(tName)" layout="column" class="md-padding" style="padding-top: 0;"> <!-- addTab(tName,tRank) -->
+    <div layout="row" layout-sm="column">
+      <div flex style="position: relative;">
+        <h2 class="md-subhead" style="position: absolute; bottom: 0; left: 0; margin: 0; font-weight: 500; text-transform: uppercase; line-height: 35px; white-space: nowrap;">Add a new Tab:</h2>
+      </div>
+      <md-input-container>
+        <label for="label">Age Group</label>
+        <input type="text" id="label" ng-model="tName">
+      </md-input-container>
+      <!-- <md-input-container style="width:200px;" >
+        <label for="content">Rank</label>
+        <input type="text" id="content" ng-model="tRank">
+      </md-input-container> -->
+      <md-button class="add-tab md-primary md-raised" ng-disabled="!tName" type="submit" style="margin-right: 0;">Add Tab</md-button> <!-- ng-disabled="!tName || !tRank" -->
+    </div>
+  </form>
+
+</div>
+
+
+
